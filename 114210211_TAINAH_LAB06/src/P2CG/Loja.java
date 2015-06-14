@@ -30,7 +30,6 @@ public class Loja {
 	private String tipoUsuario;
 	private double dinheiro;
 	private double valorTotal;
-	private JogoFactory fabricaJogos;
 	private Jogo jogo;
 	private double desconto;
 
@@ -39,9 +38,6 @@ public class Loja {
 	 */
 	public Loja() {
 		this.usuarios = new ArrayList<Usuario>();
-		this.fabricaJogos = new JogoFactory();
-		this.desconto = 0;
-		this.preco = 0;
 	}
 
 	/**
@@ -65,7 +61,7 @@ public class Loja {
 	 *             , essa excecao e lancada caso tente criar um usuario
 	 *             diferente dos tipos veterano e noob.
 	 */
-	public Usuario criaUsuario(String nome, String login, double dinheiro,
+	/*public Usuario criaUsuario(String nome, String login, double dinheiro,
 			String tipoUsuario) throws UsuarioInvalidoException {
 		try {
 			if (tipoUsuario.equals("Noob")) {
@@ -86,7 +82,7 @@ public class Loja {
 		}
 
 		return null;
-	}
+	}*/
 
 	/**
 	 * Metodo usado para criar o jogo. Esse metodo chama a classe JogoFactory
@@ -103,7 +99,7 @@ public class Loja {
 	 *            , lista que contem as jogabilidades do jogo
 	 * @return, retorna um objeto do tipo jogo.
 	 */
-	public Jogo criaJogo(String nome, double preco, String tipo,
+	/*public Jogo criaJogo(String nome, double preco, String tipo,
 			HashSet<EstiloJogos> jogabilidade) {
 		try {
 			this.jogo = fabricaJogos.criaJogo(nome, preco, tipo, jogabilidade);
@@ -114,7 +110,7 @@ public class Loja {
 
 		return jogo;
 
-	}
+	}*/
 
 	/**
 	 * Metodo criado para adicionar um jogo a lista de jogos do usuario. O jogo
@@ -151,6 +147,9 @@ public class Loja {
 		usuario.adicionaDinheiro(dinheiro);
 	}
 
+	public void adicionaUsuario(Usuario usuario){
+		usuarios.add(usuario);
+	}
 	/**
 	 * Metodo usado para tranformar um usuario do tipo Noob em Veterano conforme
 	 * condicao: possuir mais de 1000 pontos totais acumulados ou mais
