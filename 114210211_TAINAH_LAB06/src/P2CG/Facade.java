@@ -16,7 +16,7 @@ public class Facade {
 	public Jogo criaJogo(String nome, double preco, String tipo,
 			HashSet<EstiloJogos> jogabilidade) {
 		try {
-			return controller.criaJogo(nome, preco, tipo, jogabilidade);
+			return controller.criaJogo(nomAe, preco, tipo, jogabilidade);
 		} catch (JogoException e) {
 			System.out.println(e.getMessage());
 		}
