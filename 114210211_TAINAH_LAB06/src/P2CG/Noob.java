@@ -46,7 +46,7 @@ public class Noob extends Usuario {
 	public void compraJogo(Jogo jogo) throws UsuarioException {
 		adicionaPontos(jogo.getPreco());
 		subtraiDinheiro(jogo.getPreco() - (getDesconto() * jogo.getPreco()));
-		add(jogo);
+		adicionaJogo(jogo);
 
 	}
 

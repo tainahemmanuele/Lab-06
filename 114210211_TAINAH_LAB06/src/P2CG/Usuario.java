@@ -24,6 +24,7 @@ public abstract class Usuario {
 	private double desconto;
 	private double dinheiroDesconto;
 	private int pontos;
+	private CatalogoJogos catalogo;
 
 	/**
 	 * Construtor usado para criar um usuario
@@ -61,6 +62,7 @@ public abstract class Usuario {
 		this.dinheiro = dinheiro;
 		this.desconto = 0;
 		this.pontos = 0;
+		this.catalogo = new CatalogoJogos(this.jogos);
 
 	}
 
@@ -161,10 +163,21 @@ public abstract class Usuario {
 	 * @param jogo
 	 *            , jogo que foi comprado pelo usuario.
 	 */
-	public void add(Jogo jogo) {
-		jogos.add(jogo);
+	
+	
+	public void adicionaJogo(Jogo jogo){
+		catalogo.adicionaJogo(jogo);
 	}
 
+	public void removeJogo(Jogo jogo){
+		catalogo.remove(jogo);
+	}
+	
+	public Jogo pesquisaJogo(String nome){
+		return catalogo.pesquisaJogo(nome);
+	}
+	
+	
 	public String getNome() {
 		return nome;
 	}
@@ -216,6 +229,7 @@ public abstract class Usuario {
 	public void setDinheiroDesconto(double dinheiroDesconto) {
 		this.dinheiroDesconto += dinheiroDesconto;
 	}
+	
 
 	@Override
 	public String toString() {

@@ -8,15 +8,16 @@ import P2CG.Exceptions.UsuarioException;
 
 public class Facade {
 
-	Controller controller = new Controller();
+	Controller controller;
 	public Facade(){
+		this.controller = new Controller();
 		
 	}
 	
 	public Jogo criaJogo(String nome, double preco, String tipo,
 			HashSet<EstiloJogos> jogabilidade) {
 		try {
-			return controller.criaJogo(nomAe, preco, tipo, jogabilidade);
+			return controller.criaJogo(nome, preco, tipo, jogabilidade);
 		} catch (JogoException e) {
 			System.out.println(e.getMessage());
 		}
