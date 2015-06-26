@@ -3,7 +3,6 @@ package P2CG;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import java.util.HashSet;
 
 import P2CG.Exceptions.JogoException;
@@ -16,7 +15,7 @@ import P2CG.Exceptions.JogoException;
  *
  */
 
-public abstract class Jogo {
+public abstract class Jogo implements Comparable <Jogo>{
 	private String nome;
 	private double preco;
 	private int score;
@@ -89,7 +88,7 @@ public abstract class Jogo {
 		this.preco = preco;
 	}
 
-	public int getScore() {
+	public Integer  getScore() {
 		return score;
 	}
 
@@ -97,7 +96,7 @@ public abstract class Jogo {
 		this.score = score;
 	}
 
-	public int getVezesjogadas() {
+	public Integer getVezesjogadas() {
 		return vezesJogadas;
 	}
 
@@ -105,7 +104,7 @@ public abstract class Jogo {
 		this.vezesJogadas = vezesJogadas;
 	}
 
-	public int getZerajogo() {
+	public Integer getZerajogo() {
 		return zeraJogo;
 	}
 
@@ -121,11 +120,11 @@ public abstract class Jogo {
 		this.jogabilidade = jogabilidade;
 	}
 
-	public int getPontos() {
+	public Integer getPontos() {
 		return pontos;
 	}
 
-	public int setPontos(int pontos) {
+	public Integer setPontos(int pontos) {
 		return this.pontos = pontos;
 	}
 
@@ -168,4 +167,8 @@ public abstract class Jogo {
 		}
 		return false;
 	}
+	@Override
+	public int compareTo(Jogo jogo) {
+	       return this.nome.compareTo(jogo.getNome());
+		}
 }

@@ -16,7 +16,7 @@ import P2CG.Exceptions.UsuarioException;
  * @author tainahemmanuele
  *
  */
-public abstract class Usuario {
+public abstract class Usuario implements Comparable <Usuario> {
 	private String nome;
 	private String login;
 	protected ArrayList<Jogo> jogos;
@@ -177,6 +177,17 @@ public abstract class Usuario {
 		return catalogo.pesquisaJogo(nome);
 	}
 	
+	public Jogo maiorScore(){
+		return catalogo.maiorScore();
+	}
+	
+	public Jogo maisJogado(){
+		return catalogo.maisJogado();
+	}
+	
+	public Jogo maisZerado(){
+		return catalogo.maisZerado();
+	}
 	
 	public String getNome() {
 		return nome;
@@ -269,5 +280,13 @@ public abstract class Usuario {
 		}
 		return false;
 	}
-
+	public int compareTo(Usuario usuario) {
+	       if(this.pontos < usuario.getPontos()){
+	    	   return -1;
+	       }
+	       if(this.pontos > usuario.getPontos()){
+	    	   return 1;
+	       }
+	       return 0;
+		}
 }

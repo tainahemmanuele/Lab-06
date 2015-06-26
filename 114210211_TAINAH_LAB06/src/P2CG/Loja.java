@@ -22,7 +22,7 @@ import P2CG.Exceptions.UsuarioInvalidoException;
  *
  */
 
-public class Loja {
+public class Loja  {
 	private ArrayList<Usuario> usuarios;
 	private String nomeJogo;
 	private double preco;
