@@ -59,4 +59,12 @@ public class Controller {
 	public void adicionaUsuario(Usuario usuario){
 		loja.adicionaUsuario(usuario);
 	}
+	
+	public void imprimeTop(){
+		loja.ordenaPontos();
+		for(int i =0; i<5; i++){
+			System.out.println(loja.getUsuarios());
+			
+		}
+	}
 }

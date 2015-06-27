@@ -2,6 +2,7 @@
 package P2CG;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -150,6 +151,14 @@ public class Loja  {
 	public void adicionaUsuario(Usuario usuario){
 		usuarios.add(usuario);
 	}
+	
+	public void ordenaPontos(){
+		Collections.sort(usuarios);
+	}
+	
+	
+	
+	
 	/**
 	 * Metodo usado para tranformar um usuario do tipo Noob em Veterano conforme
 	 * condicao: possuir mais de 1000 pontos totais acumulados ou mais

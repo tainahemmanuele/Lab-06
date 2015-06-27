@@ -16,7 +16,7 @@ import P2CG.Exceptions.UsuarioException;
  * @author tainahemmanuele
  *
  */
-public abstract class Usuario implements Comparable <Usuario> {
+public class Usuario implements Comparable <Usuario> {
 	private String nome;
 	private String login;
 	protected ArrayList<Jogo> jogos;
@@ -261,7 +261,7 @@ public abstract class Usuario implements Comparable <Usuario> {
 	}
 
 	/**
-	 * Equals criado para indicar que dois usuarios s�o iguais quando tiverem
+	 * Equals criado para indicar que dois usuarios sao iguais quando tiverem
 	 * o mesmo nome e login.
 	 */
 	@Override

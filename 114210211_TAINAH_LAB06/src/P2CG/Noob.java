@@ -11,7 +11,7 @@ import P2CG.Exceptions.UsuarioException;
  * @author tainahemmanuele
  *
  */
-public class Noob extends Usuario {
+public class Noob {
 
 	/**
 	 * Construtor usado para criar um usuario do tipo Noob

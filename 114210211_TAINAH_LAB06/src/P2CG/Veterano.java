@@ -11,7 +11,7 @@ import P2CG.Exceptions.UsuarioException;
  * @author tainahemmanuele
  *
  */
-public class Veterano extends Usuario {
+public class Veterano {
 
 	/**
 	 * Construtor usado para criar um usuario do tipo Veterano
