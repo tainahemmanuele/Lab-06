@@ -33,11 +33,11 @@ public class Controller {
 	
 	public Usuario criaUsuario(String nome, String login, double dinheiro,
 			String tipoUsuario) throws CriacaoUsuarioException {
+		    this.usuario =new Usuario(nome, login, dinheiro);
 			if (tipoUsuario.equals("Noob")) {
-				Usuario usuario = new Noob(nome, login, dinheiro);
 				return usuario;
 			} else if (tipoUsuario.equals("Veterano")) {
-				Usuario usuario = new Veterano(nome, login, dinheiro);
+				usuario.upgrade();
 				return usuario;
 			} else if (!tipoUsuario.equals("Noob")
 					|| tipoUsuario.equals("Veterano")) {

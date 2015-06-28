@@ -25,6 +25,7 @@ public class Usuario implements Comparable <Usuario> {
 	private double dinheiroDesconto;
 	private int pontos;
 	private CatalogoJogos catalogo;
+	private Jogador jogador;
 
 	/**
 	 * Construtor usado para criar um usuario
@@ -63,6 +64,7 @@ public class Usuario implements Comparable <Usuario> {
 		this.desconto = 0;
 		this.pontos = 0;
 		this.catalogo = new CatalogoJogos(this.jogos);
+		this.jogador = new Noob(this.jogos,dinheiro);
 
 	}
 
@@ -76,86 +78,38 @@ public class Usuario implements Comparable <Usuario> {
 		this.dinheiro += dinheiro;
 	}
 
-	/**
-	 * Metodo que permite a adicao de pontos ao usuario a partir do preco do
-	 * jogo.
-	 * 
-	 * @param preco
-	 *            , preco do jogo.
-	 * @return, quantidade de pontos.
-	 */
-	public int adicionaPontos(double preco) {
-		this.pontos += (preco * 10);
-		return this.pontos;
-	}
+	
 
-	/**
-	 * Metodo criado para subtrair do dinheiro do usuario o valor do jogo
-	 * comprado (com desconto a partir do tipo de usuario) Esse metodo e chamado
-	 * dentro do metodo compraJogo
-	 * 
-	 * @param dinheiro
-	 *            , dinheiro do usuario
-	 * @return , retorna o total que o usuario gastou com desconto nos jogos
-	 * @throws UsuarioException
-	 *             , excecao lancada caso o dinheiro do usuario seja menor que o
-	 *             valor do jogo
-	 */
-	public double subtraiDinheiro(double preco) throws UsuarioException {
-		if (this.dinheiro < preco) {
-			throw new SaldoException("Saldo insuficiente");
-		} else {
-			dinheiroDesconto += preco;
-			this.dinheiro -= preco;
-			return dinheiroDesconto;
+	public void upgrade(){
+		jogador = new Veterano(jogos, desconto);
+	}
+	
+	public void downgrade(){
+		jogador = new Noob(jogos, desconto);
+	}
+	
+	public void perdeuPartida(String nomeJogo, int scoreObtido, boolean zerou){
+		jogador.perdeuPartida(nomeJogo, scoreObtido, zerou);
+	}
+	
+	public void ganhouPartida(String nomeJogo, int scoreObtido, boolean zerou){
+		jogador.ganhouPartida(nomeJogo, scoreObtido, zerou);
+	}
+	
+	public void compraJogo(Jogo jogo) throws UsuarioException{
+		jogador.compraJogo(jogo);
+		this.pontos += jogador.getPontos();
+		catalogo.adicionaJogo(jogo);
+		if(getPontos()>=1000){
+			upgrade();
+		}else{
+			downgrade();
 		}
+		
 	}
+	
 
-	/**
-	 * Metodo criado para a compra do jogo. E do tipo abstrato. Cada classe que
-	 * herda Usuario(Noob e Veterano)possuem suas proprias condicoes de
-	 * manipulacao dos argumentos
-	 * 
-	 * @param jogo
-	 *            , jogo criado
-	 * @throws UsuarioException
-	 *             , excecao lancada caso o dinheiro do usuario seja menor que o
-	 *             valor do jogo
-	 */
-	public abstract void compraJogo(Jogo jogo) throws UsuarioException;
-
-	/**
-	 * Metodo criado para recompensar o usuario de acordo com as jogabilidades
-	 * dos jogos que ele jogou . E do tipo abstrato. Cada classe que herda
-	 * Usuario(Noob e Veterano)possuem suas proprias condicoes de manipulacao
-	 * dos argumentos
-	 * 
-	 * @param nomeJogo
-	 *            , nome do jogo que o usuario jogou e deve ser recompensado por
-	 *            isso
-	 * @param scoreObtido
-	 *            , o score obtido no jogo
-	 * @param zerou
-	 *            , se o uzuario zerou ou nao o jogo
-	 */
-	public abstract void recompensar(String nomeJogo, int scoreObtido,
-			boolean zerou);
-
-	/**
-	 * Metodo criado para punir o usuario de acordo com as jogabilidades dos
-	 * jogos que ele jogou . E do tipo abstrato. Cada classe que herda
-	 * Usuario(Noob e Veterano)possuem suas proprias condicoes de manipulacao
-	 * dos argumentos
-	 * 
-	 * @param nomeJogo
-	 *            , nome do jogo que o usuario jogou e deve ser punido por isso
-	 * @param scoreObtido
-	 *            , o score obtido no jogo
-	 * @param zerou
-	 *            , se o uzuario zerou ou nao o jogo
-	 */
-	public abstract int punir(String nomeJogo, int scoreObtido, boolean zerou);
-
+	
 	/**
 	 * Metodo que adiciona o jogo criado e comprado pelo usuario na sua lista de
 	 * jogos.
@@ -173,6 +127,7 @@ public class Usuario implements Comparable <Usuario> {
 		catalogo.remove(jogo);
 	}
 	
+
 	public Jogo pesquisaJogo(String nome){
 		return catalogo.pesquisaJogo(nome);
 	}

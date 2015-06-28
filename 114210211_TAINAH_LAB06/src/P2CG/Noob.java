@@ -1,6 +1,8 @@
 /* 114210211 - Tainah Emmanuele Silva: LAB 5 - Turma 3 */
 package P2CG;
 
+import java.util.ArrayList;
+
 import P2CG.Exceptions.UsuarioException;
 import P2CG.Exceptions.CriacaoUsuarioException;
 import P2CG.Exceptions.UsuarioException;
@@ -11,7 +13,11 @@ import P2CG.Exceptions.UsuarioException;
  * @author tainahemmanuele
  *
  */
-public class Noob {
+public class Noob extends Jogador{
+
+	public Noob(ArrayList<Jogo> jogos,double dinheiro) {
+		super(jogos,dinheiro);
+	}
 
 	/**
 	 * Construtor usado para criar um usuario do tipo Noob
@@ -27,13 +33,7 @@ public class Noob {
 	 *             login do usuario seja vazio ou o dinheiro do usuario seja
 	 *             negativo.
 	 */
-	public Noob(String nome, String login, double dinheiro)
-			throws CriacaoUsuarioException {
 
-		super(nome, login, dinheiro);
-		setDesconto(0.1);
-		// TODO Auto-generated constructor stub
-	}
 
 	/**
 	 * Metodo criado para a compra do jogo. Herda da classe Usuario. Nesse
@@ -44,9 +44,9 @@ public class Noob {
 	 */
 	@Override
 	public void compraJogo(Jogo jogo) throws UsuarioException {
-		adicionaPontos(jogo.getPreco());
+		setDesconto(0.1);
+        adicionaPontos(jogo.getPreco());
 		subtraiDinheiro(jogo.getPreco() - (getDesconto() * jogo.getPreco()));
-		adicionaJogo(jogo);
 
 	}
 
@@ -56,7 +56,7 @@ public class Noob {
 	 * total de pontos do usuario.
 	 */
 	@Override
-	public void recompensar(String nomeJogo, int scoreObtido, boolean zerou) {
+	public void ganhouPartida(String nomeJogo, int scoreObtido, boolean zerou) {
 		for (Jogo jogo : getJogos()) {
 			if (jogo.getNome().equals(nomeJogo)) {
 				jogo.joga(scoreObtido, zerou);
@@ -81,7 +81,7 @@ public class Noob {
 	 * total de pontos do usuario.
 	 */
 	@Override
-	public int punir(String nomeJogo, int scoreObtido, boolean zerou) {
+	public int perdeuPartida(String nomeJogo, int scoreObtido, boolean zerou) {
 		for (Jogo jogo : getJogos()) {
 			if (jogo.getNome().equals(nomeJogo)) {
 				jogo.joga(scoreObtido, zerou);

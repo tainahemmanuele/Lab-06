@@ -1,6 +1,8 @@
 /* 114210211 - Tainah Emmanuele Silva: LAB 5 - Turma 3 */
 package P2CG;
 
+import java.util.ArrayList;
+
 import P2CG.Exceptions.UsuarioException;
 import P2CG.Exceptions.CriacaoUsuarioException;
 import P2CG.Exceptions.UsuarioException;
@@ -11,28 +13,16 @@ import P2CG.Exceptions.UsuarioException;
  * @author tainahemmanuele
  *
  */
-public class Veterano {
+public class Veterano extends Jogador{
 
-	/**
-	 * Construtor usado para criar um usuario do tipo Veterano
-	 * 
-	 * @param nome
-	 *            , nome do usuario
-	 * @param login
-	 *            , login do usuario
-	 * @param dinheiro
-	 *            , dinheiro do usuario
-	 * @throws CriacaoUsuarioException
-	 *             , excecao lan�ada caso o nome do usuario seja vazio, o
-	 *             login do usuario seja vazio ou o dinheiro do usuario seja
-	 *             negativo.
-	 */
-	public Veterano(String nome, String login, double dinheiro)
-			throws CriacaoUsuarioException {
-		super(nome, login, dinheiro);
-		setDesconto(0.2);
+	
+
+	public Veterano(ArrayList<Jogo> jogos,double dinheiro) {
+		super(jogos,dinheiro);
 		// TODO Auto-generated constructor stub
 	}
+
+
 
 	/**
 	 * Metodo criado para a compra do jogo. Herda da classe Usuario. Nesse
@@ -43,10 +33,9 @@ public class Veterano {
 	 */
 	@Override
 	public void compraJogo(Jogo jogo) throws UsuarioException {
+		setDesconto(0.2);
 		adicionaPontos(jogo.getPreco());
 		subtraiDinheiro(jogo.getPreco() - (getDesconto() * jogo.getPreco()));
-		adicionaJogo(jogo);
-		// TODO Auto-generated method stub
 
 	}
 
@@ -56,7 +45,7 @@ public class Veterano {
 	 * total de pontos do usuario.
 	 */
 	@Override
-	public void recompensar(String nomeJogo, int scoreObtido, boolean zerou) {
+	public void ganhouPartida(String nomeJogo, int scoreObtido, boolean zerou) {
 		for (Jogo jogo : getJogos()) {
 			if (jogo.getNome().equals(nomeJogo)) {
 				jogo.joga(scoreObtido, zerou);
@@ -81,7 +70,7 @@ public class Veterano {
 	 * total de pontos do usuario.
 	 */
 	@Override
-	public int punir(String nomeJogo, int scoreObtido, boolean zerou) {
+	public int perdeuPartida(String nomeJogo, int scoreObtido, boolean zerou) {
 		for (Jogo jogo : getJogos()) {
 			if (jogo.getNome().equals(nomeJogo)) {
 				jogo.joga(scoreObtido, zerou);
@@ -89,11 +78,12 @@ public class Veterano {
 			}
 			if (jogo.getNome().equals(nomeJogo)) {
 				if (jogo.getJogabilidade().contains(EstiloJogos.COMPETITIVO)) {
-					return setPontos(-20);
+					setPontos(-20);
 				}
 				if (jogo.getJogabilidade().contains(EstiloJogos.COOPERATIVO)) {
-					return setPontos(-20);
+					setPontos(-20);
 				}
+				return getPontos();
 			}
 
 		}
