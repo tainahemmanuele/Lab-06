@@ -14,13 +14,14 @@ public class Controller {
 	private Usuario usuario;
 	private double preco;
 	private double valorTotal;
+	private double desconto;
+	private String status;
 
 	public Controller(){
 		this.fabricaJogos = new JogoFactory();
 		this.loja = new Loja();
-		//this.desconto = 0;
 		this.preco = 0;
-		
+		this.desconto = 0;
 	}
 	
 	public Jogo criaJogo(String nome, double preco, String tipo,
@@ -66,5 +67,38 @@ public class Controller {
 			System.out.println(loja.getUsuarios());
 			
 		}
+	}
+	
+	public void ordenaPontos(){
+		loja.ordenaPontos();
+	}
+	
+	public String imprime() {
+		status+=" === Central P2-CG === ";
+		for (Usuario usuario : loja.getUsuarios()) {
+			status+= "  "+usuario.getLogin();
+			status+= "  "+usuario.getNome();
+			status+= "  "+"Jogador " + usuario.getClass().getSimpleName()
+					+ ": " + usuario.getPontos() + " x2p";
+			status+= "  "+"Lista de Jogos:";
+			for (Jogo jogo : usuario.getJogos()) {
+				status+= "  "+"+" + jogo.getNome() + " - "
+						+ jogo.getClass().getSimpleName() + ":";
+				status+= "  "+"===> Jogou " + jogo.getVezesjogadas()
+						+ " vez(es)";
+				status+= "  "+"===> Zerou " + jogo.getZerajogo()
+						+ " vez(es)";
+				status+= "  "+"===> Maior Score " + jogo.getScore();
+				status+= "  ";
+
+			}
+			desconto += usuario.getDinheiroDesconto();
+			status+= "  "+desconto;
+		}
+		status+= "  "+"Total de preco dos jogos: R$ " + valorTotal;
+		status+= "  ";
+		status+= "  "+"---------------------------------------------";
+		status+= "  "+"Total arrecadado com vendas de jogos:" + desconto;
+		return status;
 	}
 }

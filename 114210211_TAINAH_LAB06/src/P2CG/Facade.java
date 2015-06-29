@@ -42,4 +42,7 @@ public class Facade {
 		}
 	}
 	
+	public void imprime(){
+		System.out.println(controller.imprime());
+	}
 }

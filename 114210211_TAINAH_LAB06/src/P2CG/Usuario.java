@@ -100,15 +100,20 @@ public class Usuario implements Comparable <Usuario> {
 		jogador.compraJogo(jogo);
 		this.pontos += jogador.getPontos();
 		catalogo.adicionaJogo(jogo);
-		if(getPontos()>=1000){
+		mudaUsuario(this.pontos);
+		
+		}
+		
+	
+	
+
+    private void mudaUsuario(int pontos){
+    	if(pontos>=1000){
 			upgrade();
 		}else{
 			downgrade();
 		}
-		
-	}
-	
-
+    }
 	
 	/**
 	 * Metodo que adiciona o jogo criado e comprado pelo usuario na sua lista de
