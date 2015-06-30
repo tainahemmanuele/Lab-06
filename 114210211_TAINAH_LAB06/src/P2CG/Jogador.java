@@ -15,6 +15,8 @@ public abstract class Jogador {
 	public Jogador(ArrayList<Jogo> jogos, double dinheiro){
 		this.jogos = jogos;
 		this.dinheiro = dinheiro;
+		this.desconto = 0;
+		this.dinheiroDesconto = 0;
 		
 	}
 	
@@ -91,6 +93,8 @@ public abstract class Jogador {
 		return this.pontos;
 	}
 
+	public abstract double calculaDesconto(double precoJogo);
+	
 	public double getDesconto() {
 		return desconto;
 	}
@@ -122,6 +126,7 @@ public abstract class Jogador {
 	public ArrayList<Jogo> getJogos() {
 		return jogos;
 	}
+	
 	
 	
 

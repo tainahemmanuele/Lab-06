@@ -64,7 +64,6 @@ public class CatalogoJogos  {
 				jogoEscolhido = jogo;
 				
 			}
-			return jogoEscolhido;
 		}
 		return jogoEscolhido;
 	}
@@ -75,7 +74,6 @@ public class CatalogoJogos  {
 				jogoEscolhido = jogo;
 				
 			}
-			return jogoEscolhido;
 		}
 		return jogoEscolhido;
 
@@ -86,7 +84,6 @@ public class CatalogoJogos  {
 			if(jogo.getJogabilidade().contains(jogabilidade)){
 				jogoEscolhido = jogo;
 			}
-			return jogoEscolhido;
 		}
 		return jogoEscolhido;
 	}

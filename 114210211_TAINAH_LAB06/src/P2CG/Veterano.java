@@ -33,9 +33,9 @@ public class Veterano extends Jogador{
 	 */
 	@Override
 	public void compraJogo(Jogo jogo) throws UsuarioException {
-		setDesconto(0.2);
-		adicionaPontos(jogo.getPreco());
-		subtraiDinheiro(jogo.getPreco() - (getDesconto() * jogo.getPreco()));
+		double desconto = calculaDesconto(jogo.getPreco());
+        adicionaPontos(jogo.getPreco());
+		subtraiDinheiro(jogo.getPreco() - desconto);
 
 	}
 
@@ -89,6 +89,13 @@ public class Veterano extends Jogador{
 		}
 		return (Integer) null;
 
+	}
+
+
+	@Override
+	public double calculaDesconto(double precoJogo) {
+		double desconto = precoJogo*0.2;
+		return desconto;
 	}
 
 }

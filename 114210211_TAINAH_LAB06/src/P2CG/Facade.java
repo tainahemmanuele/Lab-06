@@ -9,6 +9,7 @@ import P2CG.Exceptions.UsuarioException;
 public class Facade {
 
 	Controller controller;
+	
 	public Facade(){
 		this.controller = new Controller();
 		
@@ -28,7 +29,7 @@ public class Facade {
 			String tipoUsuario)  {
 		try {
 			return controller.criaUsuario(nome, login, dinheiro, tipoUsuario);
-		} catch (CriacaoUsuarioException e) {
+		} catch (UsuarioException e) {
 			System.out.println(e.getMessage());
 		}
 		return null;
@@ -42,7 +43,19 @@ public class Facade {
 		}
 	}
 	
+	public void adicionaDinheiro(double dinheiro, Usuario usuario){
+		controller.adicionaDinheiro(dinheiro, usuario);
+	}
+	
+	public void adicionaUsuario(Usuario usuario){
+		controller.adicionaUsuario(usuario);
+	}
+	
+	public void imprimeTop(){
+		controller.imprimeTop();
+	}
+	
 	public void imprime(){
-		System.out.println(controller.imprime());
+		controller.imprime();
 	}
 }

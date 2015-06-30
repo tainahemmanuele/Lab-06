@@ -39,42 +39,7 @@ public class Loja  {
 		this.usuarios = new ArrayList<Usuario>();
 	}
 
-
-	/**
-	 * Metodo criado para adicionar um jogo a lista de jogos do usuario. O jogo
-	 * so e adicionado se o preco dele for menor que a quantidade total de
-	 * dinheiro do usuario
-	 * 
-	 * @param nome
-	 *            , nome do jogo a ser adicionado ao usuario.
-	 * @param usuario
-	 *            , recebe um objeto do tipo usuario, o usuario que quer comprar
-	 *            o jogo.
-	 */
-	public void adicionaJogo(String nome, Usuario usuario) {
-		if (preco < usuario.getDinheiro()) {
-			valorTotal += preco;
-			try {
-				usuario.compraJogo(jogo);
-			} catch (UsuarioException e) {
-				System.out.println(e.getMessage());
-			}
-		}
-	}
-
-	/**
-	 * Adiciona mais dinheiro a um usuario.
-	 * 
-	 * @param dinheiro
-	 *            , quantidade de dinheiro a ser adicionada.
-	 * @param usuario
-	 *            , recebe um objeto do tipo usuario,o usuario que deve ser
-	 *            adicionado o dinheiro.
-	 */
-	public void adicionaDinheiro(double dinheiro, Usuario usuario) {
-		usuario.adicionaDinheiro(dinheiro);
-	}
-
+	
 	public void adicionaUsuario(Usuario usuario){
 		usuarios.add(usuario);
 	}

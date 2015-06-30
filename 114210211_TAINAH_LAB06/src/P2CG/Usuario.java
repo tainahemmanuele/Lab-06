@@ -21,9 +21,8 @@ public class Usuario implements Comparable <Usuario> {
 	private String login;
 	protected ArrayList<Jogo> jogos;
 	private double dinheiro;
-	private double desconto;
-	private double dinheiroDesconto;
 	private int pontos;
+	public double desconto;
 	private CatalogoJogos catalogo;
 	private Jogador jogador;
 
@@ -61,10 +60,9 @@ public class Usuario implements Comparable <Usuario> {
 		this.login = login;
 		this.jogos = new ArrayList<Jogo>();
 		this.dinheiro = dinheiro;
-		this.desconto = 0;
 		this.pontos = 0;
 		this.catalogo = new CatalogoJogos(this.jogos);
-		this.jogador = new Noob(this.jogos,dinheiro);
+		this.jogador = new Noob(this.jogos,this.dinheiro);
 
 	}
 
@@ -75,30 +73,39 @@ public class Usuario implements Comparable <Usuario> {
 	 *            , dinheiro do usuario
 	 */
 	public void adicionaDinheiro(double dinheiro) {
-		this.dinheiro += dinheiro;
+		jogador.setDinheiro(dinheiro);
 	}
 
 	
 
 	public void upgrade(){
-		jogador = new Veterano(jogos, desconto);
+		jogador = new Veterano(jogos, dinheiro);
 	}
 	
 	public void downgrade(){
-		jogador = new Noob(jogos, desconto);
+		jogador = new Noob(jogos, dinheiro);
 	}
 	
 	public void perdeuPartida(String nomeJogo, int scoreObtido, boolean zerou){
 		jogador.perdeuPartida(nomeJogo, scoreObtido, zerou);
+		setPontos(jogador.getPontos());
+		mudaUsuario(this.pontos);
 	}
 	
 	public void ganhouPartida(String nomeJogo, int scoreObtido, boolean zerou){
 		jogador.ganhouPartida(nomeJogo, scoreObtido, zerou);
+		setPontos(jogador.getPontos());
+		mudaUsuario(this.pontos);
 	}
 	
+	public double getDesconto() {
+		return desconto;
+	}
+
 	public void compraJogo(Jogo jogo) throws UsuarioException{
 		jogador.compraJogo(jogo);
 		this.pontos += jogador.getPontos();
+		descontoTotal(jogador.getDinheiroDesconto());
 		catalogo.adicionaJogo(jogo);
 		mudaUsuario(this.pontos);
 		
@@ -106,7 +113,7 @@ public class Usuario implements Comparable <Usuario> {
 		
 	
 	
-
+	
     private void mudaUsuario(int pontos){
     	if(pontos>=1000){
 			upgrade();
@@ -132,6 +139,9 @@ public class Usuario implements Comparable <Usuario> {
 		catalogo.remove(jogo);
 	}
 	
+	public String tipoJogador(){
+		return jogador.getClass().getSimpleName();
+	}
 
 	public Jogo pesquisaJogo(String nome){
 		return catalogo.pesquisaJogo(nome);
@@ -181,32 +191,26 @@ public class Usuario implements Comparable <Usuario> {
 		return this.pontos += pontos;
 	}
 
-	public void setDesconto(double desconto) {
-		this.desconto = desconto;
+	
+
+	public double getDinheiro() {
+		return jogador.getDinheiro();
 	}
 
-	public double getDesconto() {
+
+	public double descontoTotal(double descontoJogo){
+		desconto += descontoJogo;
 		return desconto;
 	}
 
-	public double getDinheiro() {
-		return dinheiro;
-	}
-
-	public double getDinheiroDesconto() {
-		return dinheiroDesconto;
-	}
-
-	public void setDinheiroDesconto(double dinheiroDesconto) {
-		this.dinheiroDesconto += dinheiroDesconto;
-	}
+	
 	
 
 	@Override
 	public String toString() {
-		return "Usuario [getDesconto()=" + getDesconto() + ", getDinheiro()="
+		return "Usuario [getDesconto()="  + ", getDinheiro()="
 				+ getDinheiro() + ", getAdiciona()=" + getPontos()
-				+ ", getDinheiroDesconto()=" + getDinheiroDesconto()
+				+ ", getDinheiroDesconto()=" 
 				+ ", getNome()=" + getNome() + ", getLogin()=" + getLogin()
 				+ ", getJogos()=" + getJogos() + "]";
 	}
