@@ -1,5 +1,6 @@
 package P2CG;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 import P2CG.Exceptions.CriacaoUsuarioException;
@@ -89,8 +90,9 @@ public class Controller {
 	
 	public void imprimeTop(){
 		loja.ordenaPontos();
+		System.out.println("------------Top 5 de Usuarios Com Maiores Xp------------");
 		for(int i =0; i<5; i++){
-			System.out.println(loja.getUsuarios());
+			System.out.println(i+1+"° " +loja.getUsuarios().get(i).getNome() + " possui "+ loja.getUsuarios().get(i).getPontos() +" de Xp");
 			
 		}
 	}
@@ -99,6 +101,9 @@ public class Controller {
 		loja.ordenaPontos();
 	}
 	
+	public ArrayList <Usuario>listaUsuario(){
+		return loja.getUsuarios();
+	}
 	public void imprime() {
 		System.out.println("=== Central P2-CG ===");
 		System.out.println();

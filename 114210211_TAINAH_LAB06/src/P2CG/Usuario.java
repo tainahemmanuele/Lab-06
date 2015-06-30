@@ -204,7 +204,9 @@ public class Usuario implements Comparable <Usuario> {
 	}
 
 	
-	
+	public void OrdenaJogo(TiposOrdenacao tipos){
+		catalogo.OrdenaJogo(tipos);
+	}
 
 	@Override
 	public String toString() {
@@ -246,10 +248,10 @@ public class Usuario implements Comparable <Usuario> {
 	}
 	public int compareTo(Usuario usuario) {
 	       if(this.pontos < usuario.getPontos()){
-	    	   return -1;
+	    	   return 1;
 	       }
 	       if(this.pontos > usuario.getPontos()){
-	    	   return 1;
+	    	   return -1;
 	       }
 	       return 0;
 		}

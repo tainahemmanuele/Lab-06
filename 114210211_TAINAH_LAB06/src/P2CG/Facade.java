@@ -1,5 +1,6 @@
 package P2CG;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 import P2CG.Exceptions.CriacaoUsuarioException;
@@ -55,6 +56,12 @@ public class Facade {
 		controller.imprimeTop();
 	}
 	
+	public  ArrayList <Usuario>listaUsuario(){
+		return controller.listaUsuario();
+	}
+	public void ordenaPontos(){
+		controller.ordenaPontos();
+	}
 	public void imprime(){
 		controller.imprime();
 	}

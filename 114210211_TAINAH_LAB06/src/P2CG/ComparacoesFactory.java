@@ -20,16 +20,16 @@ public class ComparacoesFactory {
 	}
 	
 	public void ordena(ArrayList <Jogo> jogos, TiposOrdenacao tipos){
-		if(tipos.equals("Vicio")){
+		if(tipos.equals(TiposOrdenacao.VICIO)){
 			OrdenaVezesJogadas(jogos);
 		}
-		if(tipos.equals("Desempenho")){
+		if(tipos.equals(TiposOrdenacao.DESEMPENHO)){
 			OrdenaScore(jogos);
 		}
-		if(tipos.equals("Experiencia")){
+		if(tipos.equals(TiposOrdenacao.EXPERIENCIA)){
 			OrdenaVezesZeradas(jogos);
 		}
-		if(tipos.equals("Default")){
+		if(tipos.equals(TiposOrdenacao.DEFAULT)){
 			OrdenaNome(jogos);
 		}
 	}
