@@ -79,13 +79,15 @@ public class CatalogoJogos  {
 
 	}
 	
-	public Jogo jogabilidadeEspecifica(String jogabilidade){
+	public Jogo jogabilidadeEspecifica(EstiloJogos jogabilidade){
 		for(Jogo jogo: jogos){
 			if(jogo.getJogabilidade().contains(jogabilidade)){
 				jogoEscolhido = jogo;
 			}
+			return jogoEscolhido;
 		}
 		return jogoEscolhido;
+
 	}
 	
 	public void OrdenaJogo(TiposOrdenacao tipos){
