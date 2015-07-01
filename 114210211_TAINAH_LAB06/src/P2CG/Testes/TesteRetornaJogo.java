@@ -509,17 +509,7 @@ public class TesteRetornaJogo {
 			Assert.assertEquals("Super Mario Bros", jogabilidades3.get(2).getNome());
 
 			
-			//Assert.assertEquals("Injustice", tainah.maisZerado().getNome());
 			
-			lisa.maisZerado();
-			//Assert.assertEquals("Paper Mario", lisa.maisZerado().getNome());
-	
-
-			gabriela.maisZerado();
-			//Assert.assertEquals("Super Mario Bros", gabriela.maisZerado().getNome());
-			
-			bart.maisZerado();
-			//Assert.assertEquals("Paper Mario", bart.maisZerado().getNome());
 			
 		} catch (Exception e) {
 
