@@ -10,12 +10,14 @@ public class CatalogoJogos  {
 	private int jogadoVezes;
 	private int zeradoVezes;
 	private Jogo jogoEscolhido;
+	private  ArrayList <Jogo> jogoEspecifico;
 	private ComparacoesFactory comparacoes;
 
 
 	
 	public CatalogoJogos(ArrayList<Jogo> jogos){
 		this.jogos = jogos;
+		this.jogoEspecifico = new ArrayList();
 		this.comparacoes = new ComparacoesFactory();
 
 
@@ -79,20 +81,27 @@ public class CatalogoJogos  {
 
 	}
 	
-	public Jogo jogabilidadeEspecifica(EstiloJogos jogabilidade){
+	public ArrayList <Jogo> jogabilidadeEspecifica(EstiloJogos jogabilidade){
 		for(Jogo jogo: jogos){
 			if(jogo.getJogabilidade().contains(jogabilidade)){
-				jogoEscolhido = jogo;
+				jogoEspecifico.add(jogo);
 			}
-			return jogoEscolhido;
 		}
-		return jogoEscolhido;
-
+		return jogoEspecifico;
 	}
 	
+	public ArrayList<Jogo> getJogoEspecifico() {
+		return jogoEspecifico;
+	}
+
 	public void OrdenaJogo(TiposOrdenacao tipos){
          comparacoes.ordena(jogos, tipos);
 			
 		}
+
+	@Override
+	public String toString() {
+		return "CatalogoJogos [jogoEspecifico=" + jogoEspecifico + "]";
+	}
 	
 }

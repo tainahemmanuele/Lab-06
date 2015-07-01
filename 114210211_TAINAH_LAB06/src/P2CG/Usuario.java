@@ -159,6 +159,10 @@ public class Usuario implements Comparable <Usuario> {
 		return catalogo.maisZerado();
 	}
 	
+	public ArrayList <Jogo> jogabilidadeEspecifica(EstiloJogos jogabilidade){
+		return catalogo.jogabilidadeEspecifica(jogabilidade);
+	}
+	
 	public String getNome() {
 		return nome;
 	}
