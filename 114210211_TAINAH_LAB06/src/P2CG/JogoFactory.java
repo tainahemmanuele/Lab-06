@@ -1,4 +1,4 @@
-/* 114210211 - Tainah Emmanuele Silva: LAB 5 - Turma 3 */
+/* 114210211 - Tainah Emmanuele Silva: LAB 6 - Turma 3 */
 package P2CG;
 
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import P2CG.Exceptions.CriacaoUsuarioException;
 import P2CG.Exceptions.JogoException;
 
 /**
- * Classe criada para auxliar a classe Loja a cria um jogo. Cria os jogos de
+ * Classe criada para auxiliar a classe Loja a criar um jogo. Cria os jogos de
  * acordo com o tipo (RPG,Luta ou Plataforma).
  * 
  * @author tainahemmanuele
@@ -17,7 +17,13 @@ import P2CG.Exceptions.JogoException;
 public class JogoFactory {
 
 	/**
-	 * Metodo criado para criar um jogo do tipo RPG
+	 * Construtor da classe JogoFactory.
+	 */
+	public JogoFactory(){
+		
+	}
+	/**
+	 * Metodo criado para criar um jogo do tipo RPG.
 	 * 
 	 * @param nome
 	 *            , nome do jogo
@@ -40,7 +46,7 @@ public class JogoFactory {
 	}
 
 	/**
-	 * Metodo criado para criar um jogo do tipo Plataforma
+	 * Metodo criado para criar um jogo do tipo Plataforma.
 	 * 
 	 * @param nome
 	 *            , nome do jogo
@@ -62,7 +68,7 @@ public class JogoFactory {
 	}
 
 	/**
-	 * Metodo criado para criar um jogo do tipo Luta
+	 * Metodo criado para criar um jogo do tipo Luta.
 	 * 
 	 * @param nome
 	 *            , nome do jogo
@@ -84,7 +90,7 @@ public class JogoFactory {
 	}
 
 	/**
-	 * Metodo criado para criar um jogo
+	 * Metodo criado para criar um jogo.
 	 * 
 	 * @param nome
 	 *            , nome do jogo

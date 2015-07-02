@@ -1,3 +1,4 @@
+/* 114210211 - Tainah Emmanuele Silva: LAB 6 - Turma 3 */
 package P2CG.Testes;
 
 import static org.junit.Assert.*;
@@ -121,33 +122,33 @@ public class TesteOrdenaListas {
 			bart.ganhouPartida("Paper Mario", 2985, true);
 
 			
-			gabriela.OrdenaJogo(tipo1);
+			gabriela.ordenaJogo(tipo1);
 			Assert.assertEquals("Injustice", gabriela.getJogos().get(0).getNome());
 
 			
-			gabriela.OrdenaJogo(tipo2);
+			gabriela.ordenaJogo(tipo2);
 			Assert.assertEquals("Mario e Luigi: Superstar Saga", gabriela.getJogos().get(1).getNome());
 
 			
-			gabriela.OrdenaJogo(tipo3);
+			gabriela.ordenaJogo(tipo3);
 			Assert.assertEquals("Paper Mario", gabriela.getJogos().get(1).getNome());
 
 			
-			gabriela.OrdenaJogo(tipo4);
+			gabriela.ordenaJogo(tipo4);
 			Assert.assertEquals("Guilty", gabriela.getJogos().get(0).getNome());
 
 			
-			tainah.OrdenaJogo(tipo1);
+			tainah.ordenaJogo(tipo1);
 			Assert.assertEquals("Injustice", tainah.getJogos().get(1).getNome());
 			
-			tainah.OrdenaJogo(tipo2);
+			tainah.ordenaJogo(tipo2);
 			Assert.assertEquals("Super Mario Bros", tainah.getJogos().get(1).getNome());
 
-			tainah.OrdenaJogo(tipo3);
+			tainah.ordenaJogo(tipo3);
 			Assert.assertEquals("Guilty", tainah.getJogos().get(0).getNome());
 
 			
-			tainah.OrdenaJogo(tipo4);
+			tainah.ordenaJogo(tipo4);
 			Assert.assertEquals("Super Mario Bros", tainah.getJogos().get(3).getNome());
 	
 

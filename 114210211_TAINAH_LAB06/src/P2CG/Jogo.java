@@ -1,4 +1,4 @@
-/* 114210211 - Tainah Emmanuele Silva: LAB 5 - Turma 3 */
+/* 114210211 - Tainah Emmanuele Silva: LAB 6 - Turma 3 */
 package P2CG;
 
 import java.util.ArrayList;
@@ -167,6 +167,10 @@ public abstract class Jogo implements Comparable <Jogo>{
 		}
 		return false;
 	}
+	/**
+	 * Metodo que utiliza a interface Comparable. Ordena qualquer lista de jogos por ordem
+	 * alfabetica.
+	 */
 	@Override
 	public int compareTo(Jogo jogo) {
 	       return this.nome.compareTo(jogo.getNome());

@@ -1,4 +1,4 @@
-/* 114210211 - Tainah Emmanuele Silva: LAB 5 - Turma 3 */
+/* 114210211 - Tainah Emmanuele Silva: LAB 6 - Turma 3 */
 package P2CG;
 
 import java.util.ArrayList;
@@ -8,14 +8,18 @@ import P2CG.Exceptions.CriacaoUsuarioException;
 import P2CG.Exceptions.UsuarioException;
 
 /**
- * Classe herdada de usuario. Cria usuario do tipo veterano;
+ * Classe herdada de Jogador. Cria um Jogador do tipo veterano;
  * 
  * @author tainahemmanuele
  *
  */
 public class Veterano extends Jogador{
 
-	
+	/**
+	 * Construtor da classe Veterano.
+	 * @param jogos - lista de jogos do usuario;
+	 * @param dinheiro - dinheiro do usuario.
+	 */
 
 	public Veterano(ArrayList<Jogo> jogos,double dinheiro) {
 		super(jogos,dinheiro);
@@ -25,8 +29,8 @@ public class Veterano extends Jogador{
 
 
 	/**
-	 * Metodo criado para a compra do jogo. Herda da classe Usuario. Nesse
-	 * metodo, e gerado os pontos do usuario pela compra do jogo; O desconto do
+	 * Metodo criado para a compra do jogo. Herda da classe Jogador. Nesse
+	 * metodo, e gerado os pontos do jogador/usuario pela compra do jogo; O desconto do
 	 * preco do jogo e calculado; O preco do jogo com desconto e subtraido do
 	 * dinheiro total do usuario; O jogo e adicionado na lista de jogos do
 	 * usuario.
@@ -40,7 +44,7 @@ public class Veterano extends Jogador{
 	}
 
 	/**
-	 * Metodo criado para recompensar usuario com pontos, de acordo com as
+	 * Metodo criado para recompensar o jogador/usuario com pontos, de acordo com as
 	 * jogabilidades dos jogos que o mesmo jogou. Os pontos sao adicionados ao
 	 * total de pontos do usuario.
 	 */
@@ -65,7 +69,7 @@ public class Veterano extends Jogador{
 	}
 
 	/**
-	 * Metodo criado para punir usuario com pontos, de acordo com as
+	 * Metodo criado para punir o jogador/usuario com pontos, de acordo com as
 	 * jogabilidades do jogos que o mesmo jogou. Os pontos sao subtraidos do
 	 * total de pontos do usuario.
 	 */
@@ -91,7 +95,10 @@ public class Veterano extends Jogador{
 
 	}
 
-
+	/**
+	 * Metodo criado para calcular o desconto do jogo, de acordo com o tipo de
+	 * jogador.
+	 */
 	@Override
 	public double calculaDesconto(double precoJogo) {
 		double desconto = precoJogo*0.2;
