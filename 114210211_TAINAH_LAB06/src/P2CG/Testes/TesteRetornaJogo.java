@@ -16,7 +16,10 @@ import P2CG.TiposOrdenacao;
 import P2CG.Usuario;
 
 public class TesteRetornaJogo {
-
+/**
+ * Teste criado para testar se o metodo maiorScore() retorna o jogo da lista do usuario que
+ * tem maior score.
+ */
 	@Test
 	public void testRetornaJogoScore() {
 		try {
@@ -139,7 +142,10 @@ public class TesteRetornaJogo {
 
 		}
 	}
-	
+	/**
+	 * Teste criado para testar se o metodo maiorJogado() retorna o jogo da lista do usuario que
+	 * foi jogado mais vezes.
+	 */
 
 	@Test
 	public void testRetornaJogoJogadas(){
@@ -263,6 +269,11 @@ public class TesteRetornaJogo {
 
 		}
 	}
+	
+	/**
+	 * Teste criado para testar se o metodo maiorZerado() retorna o jogo da lista do usuario que
+	 * foi zerado mais vezes.
+	 */
 	@Test
 	public void testRetornaJogoZerado(){
 		try {
@@ -385,7 +396,10 @@ public class TesteRetornaJogo {
 
 		}
 	}
-	
+	/**
+	 * Teste criado para testar se o metodo jogabilidadeEspecifica() retorna o jogo da lista do usuario que
+	 * possui uma determinada jogabilidade, sendo esta definida anteriormente.
+	 */
 	@Test
 	public void testRetornaJogoJogabilidade(){
 		try {

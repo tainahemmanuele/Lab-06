@@ -18,16 +18,17 @@ import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TesteLoja {
+public class TesteFacade {
 
 	/**
-	 * Teste criado para testar se a classe loja esta funcionando corretamente.
+	 * Teste criado para testar se a classe Facade esta funcionando corretamente.
+	 * Se a Facade consegue delegar(forwarding) as chamadas do metodo para o Controller.
 	 * Neste teste e testado os metodos de criar o jogo, criar o usuario e se a
 	 * partir disso o usuario consegue jogar o jogo, alem de imprimir as
 	 * informacoes referentes a loja.
 	 */
 	@Test
-	public void testLojaCriacaoUsuarioeJogo() {
+	public void testFacadeCriacaoUsuarioeJogo() {
 		try {
 			Facade facade = new Facade();
 			Usuario tainah = facade.criaUsuario("Tainah Emmanuele","tainahemmanuele", 250.00, "Noob");
@@ -67,12 +68,12 @@ public class TesteLoja {
 	}
 
 	/**
-	 * Teste criado para testar o comportamento da classe loja e seus metodos na
+	 * Teste criado para testar o comportamento da classe Facade e seus metodos na
 	 * criacao de varios usuarios.
 	 *
 	 */
 	@Test
-	public void testLojaCriaVariosUsuarioseJogos() {
+	public void testFacadeCriaVariosUsuarioseJogos() {
 		try {
 			Facade facade = new Facade();
 			HashSet<EstiloJogos> estilo = new HashSet();
@@ -177,11 +178,11 @@ public class TesteLoja {
 	}
 
 	/**
-	 * Teste criado para saber se a classe loja captura e lanca as excecoes
+	 * Teste criado para saber se a classe Facade captura e lanca as excecoes
 	 * referentes a criacao do usuario.
 	 */
 	@Test
-	public void testLojaCriacaoUsuarioInvalido() {
+	public void testFacadeCriacaoUsuarioInvalido() {
 		Facade facade = new Facade();
 		try {
 
@@ -216,11 +217,11 @@ public class TesteLoja {
 	}
 
 	/**
-	 * Teste criado para saber se a classe loja captura e lanca as excecoes
+	 * Teste criado para saber se a classe Facade captura e lanca as excecoes
 	 * referentes a criacao do jogo.
 	 */
 	@Test
-	public void testLojaCriacaoJogoInvalido() {
+	public void testFacadeCriacaoJogoInvalido() {
 		Facade facade = new Facade();
 		HashSet<EstiloJogos> estilo = new HashSet();
 		estilo.add(EstiloJogos.COMPETITIVO);

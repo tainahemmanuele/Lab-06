@@ -15,7 +15,7 @@ import P2CG.Loja;
 import P2CG.Usuario;
 import P2CG.Exceptions.UsuarioInvalidoException;
 
-public class TesteLojaPontosExperiencia {
+public class TestePontosExperiencia {
 
 	/**
 	 * Teste criado para testar se os pontos referentes a experiencia dos

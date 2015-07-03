@@ -13,7 +13,9 @@ import P2CG.Facade;
 import P2CG.Usuario;
 
 public class TestePesquisaUsuario {
-
+/**
+ * Teste criado para testar se o metodo de pesuisa de usuarios, retorna o usuario pesquisado.
+ */
 	@Test
 	public void testPesquisaUsuario() {
 		try{

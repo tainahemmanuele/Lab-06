@@ -15,7 +15,10 @@ import P2CG.TiposOrdenacao;
 import P2CG.Usuario;
 
 public class TesteOrdenaListas {
-
+/**
+ * Teste criado para testar a ordenacao da lista de jogos, considerando os criterios pre-estabelecidos:
+ * Desempenho, Experincia, Vicio, Default.
+ */
 	@Test
 	public void testOrdenaListaJogo() {
 		try {
@@ -156,6 +159,9 @@ public class TesteOrdenaListas {
 
 		}
 	}
+	/**
+	 * Teste criado para testar a ordenacao da lista de usuarios por ordem alfabetica.
+	 */
 	
 	@Test
 	public void testeOrdenaUsuario(){
